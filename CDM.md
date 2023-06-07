@@ -1,0 +1,7 @@
+### Clinical Data Management
+
+Data and especially Clinical data has been the focus of my work since I was studying medicine and trying to understand the variability of symptoms expressions in human pathology. 
+
+At some points of my career, I was directly in charge of data management, at some other delegating to or collaborating with the CDM manager.  
+
+In Summary, I Managed Clinical Data Management teams and operations for more than 300 international projects, including up to 6,000 centers and 20,000 patients and was in charge of all related tasks including CRF development, edit check specification and testing, CRF standard library, UAT, data review, data queries, reporting, data transfers, data mapping, systems integration, and database locks.

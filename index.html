@@ -5,62 +5,97 @@
     <meta name="description" content="Jean Maupas Website">
     <meta name="author" content="Jean Maupas">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://app.testdome.com/content/source/stylesheets/embed.css">
+    <!--- script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script --->
+    <!--- script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script --->
+    <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js"></script>
     <title>Jean</title>
-      <style>
-        main {
-          font-family: Arial, "Open Sans", "Helvetica Neue", sans-serif;
-          margin: 0;
-          padding: 15px;
-          background-color: lightgray;
-          margin: auto;
-          width: 50%;   
-        }
+    <style>
+      body {
+        font-family: Arial, "Open Sans", "Helvetica Neue", sans-serif;
+        width: 100%;   
+      }
+      main {
+        font-family: Arial, "Open Sans", "Helvetica Neue", sans-serif;
+        padding: 1rem;
+        background-color: lightgray;
+        margin: auto;
+        width: 50%;   
+      }
 
-        .browser {
-          margin: 10px;
-          padding: 5px;
-          background: white;
-          font-size: 90%;
-        }
+      .browser {
+        margin: .5rem;
+        padding: .5rem;
+        background: white;
+        font-size: 90%;
+      }
 
-        h2, p {
-          margin: 10px;
-        }
-        
-        .footer {
-          text-align: center;
-          margin: auto;
-          width: 50%;
-          padding: 20px;
-        }
-      </style>
+      h2, p {
+        margin: 1rem;
+      }
+      
+      .footer {
+        text-align: center;
+        margin: auto;
+        width: 50%;
+        padding: 1rem;
+      }
+
+      dialog {
+        width: 70%;
+      }
+    </style>
   </head>
-    <body>
+  <body>
       <main>
         <h2>Hello World... in progress!</h2>
         <!---  p><a href="https://Jean-Maupas.github.io/Blog">Blog</a></p --->
         <p>What I do:</p>
-        <article class="browser">
+        <article class="browser" onClick="document.getElementById('SE-Dialog').showModal()">
           <h2>Software Engineering</h2>
           <p></p>
         </article>
-        <article class="browser">
-          <h2>Information System</h2>
+        <dialog id="SE-Dialog" onClick="close()"><zero-md src="SE.md"></zero-md></dialog>
+        <article class="browser" onClick="document.getElementById('IS-Dialog').showModal()">
+          <h2>Information Systems</h2>
           <p></p>
         </article>
-        <article class="browser">
+        <dialog id="IS-Dialog" onClick="close()"><zero-md src="IS.md"></zero-md></dialog>
+        <article class="browser" onClick="document.getElementById('DA-Dialog').showModal()">
           <h2>Data Analysis</h2>
           <p></p>
         </article>
-        <article class="browser">
+        <dialog id="DA-Dialog" onClick="close()"><zero-md src="DA.md"></zero-md></dialog>
+        <article class="browser" onClick="let v=document.getElementById('CDM-Dialog'); v.showModal(); o('/CDM.html','<cdm>',document.getElementById('CDM-content'));">
           <h2>Clinical Data Management</h2>
           <p></p>
         </article>
+        <dialog id="CDM-Dialog" onClick="close()"><div id=CDM-content>Loading...</div></dialog>
       </main>
-      <footer class="footer" style="display:block">
-        <a href="https://www.linkedin.com/in/maupas/details/certifications/">Full List</a>        
-        <a href="https://cdisc.com/" class=""><img src="CDISC_Tabulate_Certification.png"></img></a>
-        <a href="https://app.testdome.com/cert/19cea77d7c8c4f1281f2cfd978258359" class="testdome-certificate-stamp gold"><span class="testdome-certificate-name">Jean Maupas</span><span class="testdome-certificate-test-name">Python </span><span class="testdome-certificate-card-logo">TestDome<br />Certificate</span></a><script>var stylesheet = "https://app.testdome.com/content/source/stylesheets/embed.css", link = document.createElement("link"); link.href = stylesheet, link.type = "text/css", link.rel = "stylesheet", link.media = "screen,print", document.getElementsByTagName("head")[0].appendChild(link);</script>
-      </footer>
-    </body>
+      <footer class="footer">
+        <div class="footer">Copyright &copy; Jean Maupas 2023</div>
+        <div hidden>
+          <a href="https://www.linkedin.com/in/maupas/details/certifications/">Full List</a>        
+          <a href="https://cdisc.com/" class=""><img src="CDISC_Tabulate_Certification.png"></img></a>
+          <a href="https://app.testdome.com/cert/19cea77d7c8c4f1281f2cfd978258359" class="testdome-certificate-stamp gold"><span class="testdome-certificate-name">Jean Maupas</span><span class="testdome-certificate-test-name">Python </span><span class="testdome-certificate-card-logo">TestDome<br />Certificate</span></a>
+      </div>
+    </footer>
+    <script>
+      
+      // Not used - replaced by zero-md
+      function o(path, tag, node) {
+        fetch(path)
+          .then((res) => res.text())
+          .then((text) => {
+//            var result = text.match(/<${tag}>(.*?)<\/${tag}>/g).map(function(text){
+//                return text.replace(/<\/?${tag}>/g,'');
+//            });
+            //let re = new RegExp(`\\\\b${name}\\\\b`, "gi");
+            //console.log(inputString.replace(re, "Jack"));
+            node.innerHTML = text // result
+          })
+          .catch((e) => console.error(e));
+      }
+    </script>
+  </body>
 </html
