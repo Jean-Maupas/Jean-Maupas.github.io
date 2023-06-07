@@ -14,6 +14,8 @@
       body {
         font-family: Arial, "Open Sans", "Helvetica Neue", sans-serif;
         width: 100%;   
+        margin:0;
+        padding:0;
       }
       main {
         font-size:1.5vw;
@@ -49,23 +51,31 @@
       }
 
       @media screen and (max-width: 800px) {
-        .main {
-           margin: 0;
-           font-size:4vw;
-           padding: 0;
-           width: 100%; 
+        main {
+           font-size: 3vw;
+           padding-left: 2vw;
+           padding-right: 2vw;
+           margin-left: 0.5rem;
+           margin-right: 0.5;
+           width: 93vw; 
         }
+        h2, p {
+        margin: 1vw;
+       }
         .browser {
-          margin: 0vw;
+          margin-right: 1vw;
+          margin-left: 1vw;
           font-size: 4vw;
-          padding: 0vw;
-          width: 100%; 
+          padding: 0.2vw;
+          padding-left: 1vw;
+          padding-right: 0;
+          width: 95%; 
         }
         .footer {
           font-size:3vw;
         }
         dialog {
-          width: 100%;
+          width: 95%;
         }
       }
     </style>
