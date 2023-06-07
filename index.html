@@ -16,12 +16,12 @@
         width: 100%;   
       }
       main {
-        font-size:2vw;
-        padding: 1vw;
+        font-size:1.5vw;
+        padding: 2vw;
         background-color: lightgray;
         margin: auto;
         margin-top: 3vw;
-        width: 90vw;   
+        width: 90%;   
       }
 
       .browser {
@@ -46,6 +46,23 @@
       dialog {
         width: 70%;
       }
+
+      @media screen and (max-width: 800px) {
+        .main {
+           margin: 0;
+           font-size:4vw;
+           padding: 0;
+           width: 100%; 
+        }
+        .browser {
+          margin: 1vw;
+           font-size: 4vw;
+           padding: 1vw;
+        }
+        .footer {
+          font-size:3vw;
+        }
+      }
     </style>
   </head>
   <body>
@@ -68,11 +85,11 @@
           <p></p>
         </article>
         <dialog id="DA-Dialog" onClick="close()"><zero-md src="DA.md"></zero-md></dialog>
-        <article class="browser" onClick="let v=document.getElementById('CDM-Dialog'); v.showModal(); o('/CDM.html','<cdm>',document.getElementById('CDM-content'));">
+        <article class="browser" onClick="document.getElementById('CDM-Dialog').showModal()">
           <h2>Clinical Data Management</h2>
           <p></p>
         </article>
-        <dialog id="CDM-Dialog" onClick="close()"><div id=CDM-content>Loading...</div></dialog>
+        <dialog id="CDM-Dialog" onClick="close()"><div id=CDM-content><zero-md src="DA.md"></zero-md></div></dialog>
       </main>
       <footer class="footer">
         <div class="footer">Copyright &copy; Jean Maupas 2023</div>
@@ -84,6 +101,7 @@
     </footer>
     <script>
       
+      // o('/CDM.html','<cdm>',document.getElementById('CDM-content'));
       // Not used - replaced by zero-md
       function o(path, tag, node) {
         fetch(path)
