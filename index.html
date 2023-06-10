@@ -22,7 +22,7 @@
         padding: 2vw;
         background-color: lightgray;
         margin: auto;
-        margin-top: 3vw;
+        margin-top: 2vw;
         width: 70%;
         height: 80%;  
       }
@@ -85,27 +85,33 @@
         <h2>Hello World... in progress!</h2>
         <!---  p><a href="https://Jean-Maupas.github.io/Blog">Blog</a></p --->
         <p>What I do:</p>
-        <article class="browser" onClick="document.getElementById('SE-Dialog').showModal()">
-          <h2>Software Engineering</h2>
-          <p></p>
-        </article>
-        <dialog id="SE-Dialog" onClick="close()"><zero-md src="SE.md"></zero-md></dialog>
+
         <article class="browser" onClick="document.getElementById('IS-Dialog').showModal()">
           <h2>Information Systems</h2>
           <p></p>
         </article>
         <dialog id="IS-Dialog" onClick="close()"><zero-md src="IS.md"></zero-md></dialog>
+
+        <article class="browser" onClick="document.getElementById('SE-Dialog').showModal()">
+          <h2>Software Engineering</h2>
+          <p></p>
+        </article>
+        <dialog id="SE-Dialog" onClick="close()"><zero-md src="SE.md"></zero-md></dialog>
+
+        <article class="browser" onClick="let d=document.getElementById('CDM-Dialog'); d.showModal(); /* logJSONFile(d) */ ">
+          <h2>Clinical Data Management</h2>
+          <p></p>
+        </article>
+        <dialog id="CDM-Dialog" onClick="close()"><zero-md src="CDM.md"></zero-md></dialog>
+
         <article class="browser" onClick="document.getElementById('DA-Dialog').showModal()">
           <h2>Data Analysis</h2>
           <p></p>
         </article>
         <dialog id="DA-Dialog" onClick="close()"><zero-md src="DA.md"></zero-md></dialog>
-        <article class="browser" onClick="document.getElementById('CDM-Dialog').showModal()">
-          <h2>Clinical Data Management</h2>
-          <p></p>
-        </article>
-        <dialog id="CDM-Dialog" onClick="close()"><div id=CDM-content><zero-md src="DA.md"></zero-md></div></dialog>
+
       </main>
+
       <footer class="footer">
         <div class="footer">Copyright &copy; Jean Maupas 2023</div>
         <div hidden>
@@ -114,10 +120,13 @@
           <a href="https://app.testdome.com/cert/19cea77d7c8c4f1281f2cfd978258359" class="testdome-certificate-stamp gold"><span class="testdome-certificate-name">Jean Maupas</span><span class="testdome-certificate-test-name">Python </span><span class="testdome-certificate-card-logo">TestDome<br />Certificate</span></a>
       </div>
     </footer>
+
     <script>
       
       // o('/CDM.html','<cdm>',document.getElementById('CDM-content'));
       // Not used - replaced by zero-md
+      //document.getElementById('loading').style.display = 'none';
+
       function o(path, tag, node) {
         fetch(path)
           .then((res) => res.text())
@@ -131,6 +140,14 @@
           })
           .catch((e) => console.error(e));
       }
+
+      async function logJSONFile(n) {
+        const response = await fetch("All.yaml");
+        const jsonData = await response.text();
+        console.log(jsonData);
+        n.innerHTML = jsonData
+      }
+      
     </script>
   </body>
 </html
