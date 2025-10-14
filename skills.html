@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Jean Maupas Website">
+    <meta name="author" content="Jean Maupas">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <link rel="stylesheet" href="https://app.testdome.com/content/source/stylesheets/embed.css">
+    <!--- script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script --->
+    <!--- script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script --->
+    <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js"></script>
+    <title>Jean</title>
+    <style>
+      body {
+        font-family: Arial, "Open Sans", "Helvetica Neue", sans-serif;
+        width: 100%;   
+        margin:0;
+        padding:0;
+      }
+      main {
+        font-size:1.5vw;
+        padding: 2vw;
+        background-color: lightgray;
+        margin: auto;
+        margin-top: 2vw;
+        width: 70%;
+        height: 80%;  
+      }
+
+      .browser {
+        margin: 2vw;
+        padding: 1.5vw;
+        background: white;
+        width: 90%;
+      }
+
+      h2, p {
+        margin: .5rem;
+      }
+      
+      .footer {
+        text-align: center;
+        margin: auto;
+        width: 100%;
+        padding: 1vw;
+        font-size:1.5vw;
+      }
+  
+      dialog {
+        width: 70%;
+      }
+
+      @media screen and (max-width: 800px) {
+        main {
+           font-size: 3vw;
+           padding-left: 2vw;
+           padding-right: 2vw;
+           margin-left: 3vw;
+           margin-right: 5vw;
+           width: 90vw; 
+        }
+        h2, p {
+        margin: 1vw;
+       }
+        .browser {
+          margin-right: 1vw;
+          margin-left: 1vw;
+          font-size: 4vw;
+          padding: 0.2vw;
+          padding-left: 1vw;
+          padding-right: 0;
+          width: 95%; 
+        }
+        .footer {
+          font-size:3vw;
+        }
+        dialog {
+          width: 90%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+      <main>
+        <h2>Welcome to my world!</h2>
+        <!---  p><a href="https://Jean-Maupas.github.io/Blog">Blog</a></p --->
+        <p>What I do:</p>
+
+        <article class="browser" onClick="document.getElementById('IS-Dialog').showModal()">
+          <h2>Information Systems</h2>
+          <p></p>
+        </article>
+        <dialog id="IS-Dialog" onClick="close()"><zero-md src="IS.md"></zero-md></dialog>
+
+        <article class="browser" onClick="document.getElementById('SE-Dialog').showModal()">
+          <h2>Software Engineering</h2>
+          <p></p>
+        </article>
+        <dialog id="SE-Dialog" onClick="close()"><zero-md src="SE.md"></zero-md></dialog>
+
+        <article class="browser" onClick="let d=document.getElementById('CDM-Dialog'); d.showModal(); /* logJSONFile(d) */ ">
+          <h2>Clinical Data Management</h2>
+          <p></p>
+        </article>
+        <dialog id="CDM-Dialog" onClick="close()"><zero-md src="CDM.md"></zero-md></dialog>
+
+        <article class="browser" onClick="document.getElementById('DA-Dialog').showModal()">
+          <h2>Data Analysis</h2>
+          <p></p>
+        </article>
+        <dialog id="DA-Dialog" onClick="close()"><zero-md src="DA.md"></zero-md></dialog>
+
+      </main>
+
+      <footer class="footer">
+        <div class="footer">Copyright &copy; Jean Maupas 2023</div>
+        <div hidden>
+          <a href="https://www.linkedin.com/in/maupas/details/certifications/">Full List</a>        
+          <a href="https://cdisc.com/" class=""><img src="CDISC_Tabulate_Certification.png"></img></a>
+          <a href="https://app.testdome.com/cert/19cea77d7c8c4f1281f2cfd978258359" class="testdome-certificate-stamp gold"><span class="testdome-certificate-name">Jean Maupas</span><span class="testdome-certificate-test-name">Python </span><span class="testdome-certificate-card-logo">TestDome<br />Certificate</span></a>
+      </div>
+    </footer>
+
+    <script>
+      
+      // o('/CDM.html','<cdm>',document.getElementById('CDM-content'));
+      // Not used - replaced by zero-md
+      //document.getElementById('loading').style.display = 'none';
+
+      function o(path, tag, node) {
+        fetch(path)
+          .then((res) => res.text())
+          .then((text) => {
+//            var result = text.match(/<${tag}>(.*?)<\/${tag}>/g).map(function(text){
+//                return text.replace(/<\/?${tag}>/g,'');
+//            });
+            //let re = new RegExp(`\\\\b${name}\\\\b`, "gi");
+            //console.log(inputString.replace(re, "Jack"));
+            node.innerHTML = text // result
+          })
+          .catch((e) => console.error(e));
+      }
+
+      async function logJSONFile(n) {
+        const response = await fetch("All.yaml");
+        const jsonData = await response.text();
+        console.log(jsonData);
+        n.innerHTML = jsonData
+      }
+      
+    </script>
+  </body>
+</html

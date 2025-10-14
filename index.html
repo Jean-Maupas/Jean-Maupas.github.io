@@ -5,10 +5,6 @@
     <meta name="description" content="Jean Maupas Website">
     <meta name="author" content="Jean Maupas">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-    <link rel="stylesheet" href="https://app.testdome.com/content/source/stylesheets/embed.css">
-    <!--- script src="https://cdn.jsdelivr.net/npm/@webcomponents/webcomponentsjs@2/webcomponents-loader.min.js"></script --->
-    <!--- script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"></script --->
-    <script type="module" src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@2/dist/zero-md.min.js"></script>
     <title>Jean</title>
     <style>
       body {
@@ -82,34 +78,7 @@
   </head>
   <body>
       <main>
-        <h2>Welcome to my world!</h2>
-        <!---  p><a href="https://Jean-Maupas.github.io/Blog">Blog</a></p --->
-        <p>What I do:</p>
-
-        <article class="browser" onClick="document.getElementById('IS-Dialog').showModal()">
-          <h2>Information Systems</h2>
-          <p></p>
-        </article>
-        <dialog id="IS-Dialog" onClick="close()"><zero-md src="IS.md"></zero-md></dialog>
-
-        <article class="browser" onClick="document.getElementById('SE-Dialog').showModal()">
-          <h2>Software Engineering</h2>
-          <p></p>
-        </article>
-        <dialog id="SE-Dialog" onClick="close()"><zero-md src="SE.md"></zero-md></dialog>
-
-        <article class="browser" onClick="let d=document.getElementById('CDM-Dialog'); d.showModal(); /* logJSONFile(d) */ ">
-          <h2>Clinical Data Management</h2>
-          <p></p>
-        </article>
-        <dialog id="CDM-Dialog" onClick="close()"><zero-md src="CDM.md"></zero-md></dialog>
-
-        <article class="browser" onClick="document.getElementById('DA-Dialog').showModal()">
-          <h2>Data Analysis</h2>
-          <p></p>
-        </article>
-        <dialog id="DA-Dialog" onClick="close()"><zero-md src="DA.md"></zero-md></dialog>
-
+        <embed src="jean.pdf" width="100%" height="100%" />
       </main>
 
       <footer class="footer">
@@ -120,34 +89,5 @@
           <a href="https://app.testdome.com/cert/19cea77d7c8c4f1281f2cfd978258359" class="testdome-certificate-stamp gold"><span class="testdome-certificate-name">Jean Maupas</span><span class="testdome-certificate-test-name">Python </span><span class="testdome-certificate-card-logo">TestDome<br />Certificate</span></a>
       </div>
     </footer>
-
-    <script>
-      
-      // o('/CDM.html','<cdm>',document.getElementById('CDM-content'));
-      // Not used - replaced by zero-md
-      //document.getElementById('loading').style.display = 'none';
-
-      function o(path, tag, node) {
-        fetch(path)
-          .then((res) => res.text())
-          .then((text) => {
-//            var result = text.match(/<${tag}>(.*?)<\/${tag}>/g).map(function(text){
-//                return text.replace(/<\/?${tag}>/g,'');
-//            });
-            //let re = new RegExp(`\\\\b${name}\\\\b`, "gi");
-            //console.log(inputString.replace(re, "Jack"));
-            node.innerHTML = text // result
-          })
-          .catch((e) => console.error(e));
-      }
-
-      async function logJSONFile(n) {
-        const response = await fetch("All.yaml");
-        const jsonData = await response.text();
-        console.log(jsonData);
-        n.innerHTML = jsonData
-      }
-      
-    </script>
   </body>
 </html
